@@ -1,0 +1,104 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)" "(v11_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/ivl/system.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/ivl/va_math.vpi";
+:vpi_module "/usr/lib/ivl/v2009.vpi";
+S_0x562d7b87a110 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x562d7b87a2a0 .scope module, "sram" "sram" 3 9;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 32 "write_data";
+    .port_info 1 /INPUT 12 "write_addr";
+    .port_info 2 /INPUT 1 "we";
+    .port_info 3 /OUTPUT 32 "read_data";
+    .port_info 4 /INPUT 12 "read_addr";
+    .port_info 5 /INPUT 1 "clk";
+P_0x562d7b87a430 .param/l "T_HOLD" 0 3 19, +C4<00000000000000000000011111010000>;
+o0x7fa99723b018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x562d7b879120_0 .net "clk", 0 0, o0x7fa99723b018;  0 drivers
+v0x562d7b8a00e0_0 .var "clk2", 0 0;
+v0x562d7b8a01a0 .array "mem_array", 0 511, 31 0;
+o0x7fa99723b078 .functor BUFZ 12, C4<zzzzzzzzzzzz>; HiZ drive
+v0x562d7b8a0240_0 .net "read_addr", 11 0, o0x7fa99723b078;  0 drivers
+v0x562d7b8a0320_0 .var "read_addr_reg", 11 0;
+v0x562d7b8a0450_0 .var "read_data", 31 0;
+o0x7fa99723b108 .functor BUFZ 1, C4<z>; HiZ drive
+v0x562d7b8a0530_0 .net "we", 0 0, o0x7fa99723b108;  0 drivers
+v0x562d7b8a05f0_0 .var "we_reg", 0 0;
+o0x7fa99723b168 .functor BUFZ 12, C4<zzzzzzzzzzzz>; HiZ drive
+v0x562d7b8a06b0_0 .net "write_addr", 11 0, o0x7fa99723b168;  0 drivers
+v0x562d7b8a0790_0 .var "write_addr_reg", 11 0;
+o0x7fa99723b1c8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0x562d7b8a0870_0 .net "write_data", 31 0, o0x7fa99723b1c8;  0 drivers
+v0x562d7b8a0950_0 .var "write_data_reg", 31 0;
+E_0x562d7b88bbe0 .event negedge, v0x562d7b879120_0;
+E_0x562d7b88b320 .event posedge, v0x562d7b879120_0;
+    .scope S_0x562d7b87a2a0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x562d7b8a00e0_0, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x562d7b87a2a0;
+T_1 ;
+    %wait E_0x562d7b88b320;
+    %load/vec4 v0x562d7b8a00e0_0;
+    %nor/r;
+    %assign/vec4 v0x562d7b8a00e0_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x562d7b87a2a0;
+T_2 ;
+    %wait E_0x562d7b88b320;
+    %load/vec4 v0x562d7b8a0240_0;
+    %assign/vec4 v0x562d7b8a0320_0, 0;
+    %delay 2000000, 0;
+    %pushi/vec4 4294967295, 4294967295, 32;
+    %assign/vec4 v0x562d7b8a0450_0, 0;
+    %load/vec4 v0x562d7b8a06b0_0;
+    %assign/vec4 v0x562d7b8a0790_0, 0;
+    %load/vec4 v0x562d7b8a0870_0;
+    %assign/vec4 v0x562d7b8a0950_0, 0;
+    %load/vec4 v0x562d7b8a0530_0;
+    %assign/vec4 v0x562d7b8a05f0_0, 0;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x562d7b87a2a0;
+T_3 ;
+    %wait E_0x562d7b88bbe0;
+    %load/vec4 v0x562d7b8a0530_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.0, 8;
+    %load/vec4 v0x562d7b8a0950_0;
+    %ix/getv 3, v0x562d7b8a0790_0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x562d7b8a01a0, 0, 4;
+T_3.0 ;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0x562d7b87a2a0;
+T_4 ;
+    %wait E_0x562d7b88bbe0;
+    %ix/getv 4, v0x562d7b8a0320_0;
+    %load/vec4a v0x562d7b8a01a0, 4;
+    %assign/vec4 v0x562d7b8a0450_0, 0;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_0x562d7b87a2a0;
+T_5 ;
+    %vpi_call/w 3 62 "$dumpfile", "sram.vcd" {0 0 0};
+    %vpi_call/w 3 63 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x562d7b87a2a0 {0 0 0};
+    %delay 1000, 0;
+    %end;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/farhad/github/iscas-snn-accelerator/verilog-workbench/src/sram.v";

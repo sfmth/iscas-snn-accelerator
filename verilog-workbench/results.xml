@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1663774138" />
+    <testcase name="test_shift_add_mult" classname="test.test_sram" file="/home/farhad/github/iscas-snn-accelerator/verilog-workbench/test/test_sram.py" lineno="80" time="1.878960371017456" sim_time_ns="87040000.001" ratio_time="46323488.958879896" />
+  </testsuite>
+</testsuites>

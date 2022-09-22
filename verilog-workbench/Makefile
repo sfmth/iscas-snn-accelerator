@@ -1,21 +1,21 @@
 # Set the following parameters for your project:
-
+NAM = sram
 # In this example we have a verilog file at verilog/pwm.v
 # FILE is the address to your main verilog file
-FILE = src/rgb_mixer
+FILE = src/$(NAM)
 
 # PREFIX is the prefix for the verilog file
-PREFIX = rgb_mixer
+PREFIX = $(NAM)
 
 # TOPLEVEL is the name of the toplevel module in your Verilog file
-TOPLEVEL = rgb_mixer
+TOPLEVEL = $(NAM)
 
 # MODULE is the basename of the Python test file
-MODULE = test.test_rgb_mixer
+MODULE = test.test_$(NAM)
 
-SINGLE = f
+SINGLE = True
 
-IGNORE = 'register_file.v\|alu.v'
+IGNORE = 'memory.v'
 
 
 
@@ -35,7 +35,7 @@ endif
 include Makefile.icarus
 
 tes:
-	echo $(VERILOG_SOURCES)
+	echo $(DIRLIST)
 # Show synthesized diagram with yosys
 # #yosys -p "read_verilog $(FILE).v; proc; opt -full; show -prefix $(FILE) -format png -viewer gwenview -colors 2 -width -signed"
 # yosys -p "read_verilog $(FILE); hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${dirlist[*]}; opt -full ; show -colors 2 -width -signed -long rgb_mixer"
@@ -48,7 +48,9 @@ tes:
 
 
 
-
+formal:
+	sby -f properties.sby
+	gtkwave properties/engine_0/trace0.vcd $(PREFIX).gtkw
 show_synth_png:
 	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; show -prefix show_synth/$(PREFIX) -format png -viewer gwenview -colors 2 -width -signed $(TOPLEVEL)"
 show_synth_dot:
@@ -56,8 +58,10 @@ show_synth_dot:
 	# Show waveforms after simulation with gtkwave
 gtkwave:
 	gtkwave $(PREFIX).vcd $(PREFIX).gtkw
+gtkwave_good:
+	gtkwave $(PREFIX)_good.vcd $(PREFIX).gtkw
 
 # Delete simulation files
 delete:
-	rm -rf sim_build/ test/__pycache__/ $(PREFIX).vcd results.xml
+	rm -rf sim_build/ test/__pycache__/ $(PREFIX).vcd results.xml properties/
 	rm show_synth/*

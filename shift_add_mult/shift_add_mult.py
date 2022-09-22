@@ -21,9 +21,9 @@ def mult(beta, potential):
     return int((beta/8)*potential)
 
 def shift_add_mult(beta, potential):
-    potential_2 = int(potential/2)
-    potential_4 = int(potential/4)
-    potential_8 = int(potential/8)
+    potential_2 = int(potential/2) # >> 1
+    potential_4 = int(potential/4) # >> 2
+    potential_8 = int(potential/8) # >> 3
     
     if (beta == 0):
         return 0
