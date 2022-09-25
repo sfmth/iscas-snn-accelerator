@@ -1,5 +1,5 @@
 # Set the following parameters for your project:
-NAM = sram
+NAM = accumulator
 # In this example we have a verilog file at verilog/pwm.v
 # FILE is the address to your main verilog file
 FILE = src/$(NAM)
