@@ -3,21 +3,21 @@
 
 // there is no need for this module
 // yikes!
+//
+// Turns out we do need it!
 
 `define THRESH_LOW      8'd200
 `define THRESH_HIGH     8'd230
 
 module schmitt_trigger (
     input wire [7:0] potential,
-    output reg spk,
-    output reg spkblty
+    output wire spk,
+    output wire spkblty_out,
+    input wire spkblty_in
     );
 
-    always @(*) begin
-        if (potential < `THRESH_LOW) begin
-            
-        end
-    end
+    assign spk = spkblty_in & (potential > `THRESH_HIGH);
+    assign spkblty_out = !spk & (potential < `THRESH_LOW);
 
     `ifdef COCOTB_SIM 
     initial begin
