@@ -108,13 +108,6 @@ async def w_spk_in(dut, spk_in, w_read):
         await Timer(10, units='us')
     # await ClockCycles(dut.clk, 10)
 
-def and_wspk(w,spk):
-    synapse = 0
-    if (w == 1):
-        if (spk == 1):
-            synapse = 1
-    
-    return synapse
 
 
 @cocotb.test()
@@ -129,70 +122,40 @@ async def test_shift_add_mult(dut):
     
     # cocotb.fork(convert_values(dut))
     synapse_sum = []
-    for i in range(1000):
+    for j in range(100):
+        
         spk_in = []
         w_read = []
-        for j in range(1024):
-            spk_in.append(random.randint(0, 1))
-            w_read.append(random.randint(0, 1))
-        # print(spk_in[100:110])
-        # print(w_read[100:110])
+        for i in range(512):
+            spk_in.append(random.randint(0, 3))
+            w_read.append(random.randint(0, 3))
+
         synapse = []
-        for j in range(1024):
-            synapse.append(and_wspk(w_read[j], spk_in[j]))
-        # print(synapse[100:110])
+        for i in range(512):
+            synapse.append(and_w_spk(w_read[i], spk_in[i]))
         
         synapse_sum.append(sum(synapse))
-        # print(synapse_sum)
 
-
-        dut.spk_in.value = BitArray(spk_in).int
-        dut.w_in.value = BitArray(w_read).int
-
-        await Timer(10, units='us')
-
-        if (synapse_sum[i] <= 255):
-            assert(bin_to_int(dut.u_out.value) == synapse_sum[i])
-        else:
-            assert(bin_to_int(dut.u_out.value) == 255)
-
-
-
-    # synapse_sum = []
-    # for j in range(100):
-        
-    #     spk_in = []
-    #     w_read = []
-    #     for i in range(512):
-    #         spk_in.append(random.randint(0, 3))
-    #         w_read.append(random.randint(0, 3))
-
-    #     synapse = []
-    #     for i in range(512):
-    #         synapse.append(and_w_spk(w_read[i], spk_in[i]))
-        
-    #     synapse_sum.append(sum(synapse))
-
-    #     # start the test
-    #     cocotb.fork(w_spk_in(dut, spk_in, w_read))
-    #     # w_spk_in(dut, spk_in, w_read).start()
-    #     for i in range(512):
-    #         if ( i == 510):
-    #             await ClockCycles(dut.clk, 1)
-    #             dut.oen.value = 1
-    #             dut.reset.value = 1
-    #             await ClockCycles(dut.clk, 1)
-    #             dut.oen.value = 0
-    #             dut.reset.value = 0
-    #             # await RisingEdge(dut.clk)
-    #             # await ClockCycles(dut.clk, 1)
-    #             break
-    #         await ClockCycles(dut.clk, 1)
-    #         if (j != 0 and i == 0):
-    #             if (synapse_sum[j-1] <= 255):
-    #                 assert(bin_to_int(dut.accumulated_potential.value) == synapse_sum[j-1])
-    #             else:
-    #                 assert(bin_to_int(dut.accumulated_potential.value) == 255)
+        # start the test
+        cocotb.fork(w_spk_in(dut, spk_in, w_read))
+        # w_spk_in(dut, spk_in, w_read).start()
+        for i in range(512):
+            if ( i == 510):
+                await ClockCycles(dut.clk, 1)
+                dut.oen.value = 1
+                dut.reset.value = 1
+                await ClockCycles(dut.clk, 1)
+                dut.oen.value = 0
+                dut.reset.value = 0
+                # await RisingEdge(dut.clk)
+                # await ClockCycles(dut.clk, 1)
+                break
+            await ClockCycles(dut.clk, 1)
+            if (j != 0 and i == 0):
+                if (synapse_sum[j-1] <= 255):
+                    assert(bin_to_int(dut.accumulated_potential.value) == synapse_sum[j-1])
+                else:
+                    assert(bin_to_int(dut.accumulated_potential.value) == 255)
 
         # print("***synapse sum***")
         # print(synapse_sum[j])

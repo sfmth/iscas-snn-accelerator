@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1664055185" />
-    <testcase name="test_shift_add_mult" classname="test.test_accumulator" file="/home/farhad/github/iscas-snn-accelerator/verilog-workbench/test/test_accumulator.py" lineno="113" time="14.191081523895264" sim_time_ns="512040000.001" ratio_time="36081816.53659134" />
-  </testsuite>
-</testsuites>

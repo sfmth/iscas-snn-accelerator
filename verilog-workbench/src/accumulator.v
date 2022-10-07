@@ -43,12 +43,11 @@ module accumulator (
                 end else begin
                     accumulated_potential <= accumulator_next;
                 end
-                
             end
         end
     end
 
-    `ifdef COCOTB_SIM 
+    `ifdef COCOTB_SIM
     initial begin
     $dumpfile ("accumulator.vcd");
     $dumpvars (0, accumulator);
@@ -57,3 +56,4 @@ module accumulator (
     `endif
 
 endmodule
+

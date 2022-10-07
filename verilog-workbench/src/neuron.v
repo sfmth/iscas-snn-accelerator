@@ -25,8 +25,8 @@ module neuron (
     assign potential_final_with_carry = potential_previous_reg + potential_accumulated;
     assign potential_final = (potential_final_with_carry[8]) ?
                                 8'd255 : potential_final_with_carry;
-                                
-    `ifdef COCOTB_SIM 
+
+    `ifdef COCOTB_SIM
     initial begin
     $dumpfile ("neuron.vcd");
     $dumpvars (0, neuron);
@@ -35,3 +35,4 @@ module neuron (
     `endif
 
 endmodule
+
