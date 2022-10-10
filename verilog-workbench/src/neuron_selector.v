@@ -4,7 +4,27 @@
 
 /* `include "shift_add_mult.v" */
 
-module u_b_memory_controler(
+module neuron_selector(
+    // generated potential by neurons:
+    // output potential selector
+    input [8191:0] potential_out_all,
+    output [127:0] potential_out_16n,
+    input [5:0] cntrl_potential_out_sel,
+
+    // accumulator input spk selector
+    output [2047:0] spk_out,
+    input [1023:0] in_spk,
+    input [1:0] processed_spk,
+
+    // 
+    // input potential 
+
+
+
+
+
+
+
     //potential read
     input wire [127:0] potential_read_sram,
     output wire [8:0] potential_read_sram_addr,
@@ -44,8 +64,8 @@ module u_b_memory_controler(
 
     `ifdef COCOTB_SIM
     initial begin
-    $dumpfile ("spk_memory_controler.vcd");
-    $dumpvars (0, spk_memory_controler);
+    $dumpfile ("neuron_selector.vcd");
+    $dumpvars (0, neuron_selector);
     #1;
     end
     `endif

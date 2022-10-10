@@ -14,7 +14,7 @@ module u_b_processor (
     output wire [127:0] load_16n_potential_out,
     input wire [127:0] load_16n_potential_in,
     input wire [63:0] load_16n_beta_in
-    
+
     // input clk, reset
     );
 

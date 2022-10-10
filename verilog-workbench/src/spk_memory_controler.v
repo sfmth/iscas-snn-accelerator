@@ -75,7 +75,15 @@ module spk_memory_controler (
     assign in_spk_read_out = in_spk_read_sram;
     assign in_spk_read_sram_addr = cntrl_in_spk_read_addr;
 
+    // spk write
+    assign spk_write_sram = spk_write_in;
+    assign spk_write_sram_addr = cntrl_spk_write_addr;
+    assign spk_write_sram_we = cntrl_spk_write_we;
 
+    //spkblty write
+    assign spkblty_write_sram = spkblty_write_in;
+    assign spkblty_write_sram_addr = cntrl_spkblty_write_addr;
+    assign spkblty_write_sram_we = cntrl_spkblty_write_we;
 
 
     `ifdef COCOTB_SIM

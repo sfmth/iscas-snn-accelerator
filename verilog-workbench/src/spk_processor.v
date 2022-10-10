@@ -10,7 +10,7 @@
 
 module spk_processor (
     // layer select
-    input wire [3:0] ls,
+    /* input wire [3:0] ls, */
     // read potentials and generate spk and spkblty
     // hidden layer mode
     input wire [127:0] hidden_16n_potential_in,

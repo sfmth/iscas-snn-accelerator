@@ -22,6 +22,25 @@ IGNORE = 'register_file.v\|alu.v'
 
 
 
+
+# Reset
+Color_Off='\033[0m'
+bold='\033[1m'
+normal=$(tput sgr0)
+# Regular Colors
+Black='\033[0;30m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Yellow='\033[0;33m'
+Blue='\033[0;34m'
+Purple='\033[0;35m'
+Cyan='\033[0;36m'
+White='\033[0;37m'
+
+
+
+
+
 # Find all of the source files
 PWD = $(shell pwd)
 DIRLIST_FULL := $(shell find $(PWD)/src/ -name "*.*v" | grep -v $(FILE) | grep -v $(IGNORE))
@@ -40,7 +59,7 @@ include Makefile.icarus
 tes:
 	echo $(VERILOG_SOURCES)
 # Show synthesized diagram with yosys
-# #yosys -p "read_verilog $(FILE).v; proc; opt -full; show -prefix $(FILE) -format png -viewer gwenview -colors 2 -width -signed"
+# #yosys -p "read_verilog $(FILE).v; proc; opt -full; show -prefix $(FILE) -format png -viewer geeqie -colors 2 -width -signed"
 # yosys -p "read_verilog $(FILE); hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${dirlist[*]}; opt -full ; show -colors 2 -width -signed -long rgb_mixer"
 # test_:
 # 	rm -rf sim_build/
@@ -52,7 +71,8 @@ tes:
 # export CFLAGS
 # target:
 # 	$(MAKE) -C target
-module: delete
+module: delete_sim
+	@echo -e '\n' $(Yellow)$(bold) '==>' $(Green)$(bold)Starting simulation$(Color_Off) '\n'
 	$(MAKE)
 # sim:
 # 	$(MAKE) delete
@@ -70,18 +90,46 @@ show_synth_svg:
 	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; show -prefix show_synth/$(PREFIX) -format svg -viewer inkscape -colors 2 -width -signed $(TOPLEVEL)"
 
 show_synth_png:
-	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; show -prefix show_synth/$(PREFIX) -format png -viewer gwenview -colors 2 -width -signed $(TOPLEVEL)"
+	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; show -prefix show_synth/$(PREFIX) -format png -viewer geeqie -colors 2 -width -signed $(TOPLEVEL)"
 
-show_synth_dot:
+show_synth_dot: 
 	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; show -prefix show_synth/$(PREFIX) -colors 2 -width -signed -long $(TOPLEVEL)"
 	# yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; synth -coarse ; show -prefix show_synth/$(PREFIX) -colors 2 -width -signed -long $(TOPLEVEL)"
+
+show_synth_human:
+	# yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; proc; extract -map ${DIRLIST}; opt -full ; write_json show_synth/$(PREFIX).json"
+	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; prep ; write_json show_synth/$(PREFIX).json"
+	netlistsvg show_synth/$(PREFIX).json -o show_synth/$(PREFIX).svg
+	# geeqie show_synth/$(PREFIX).svg
+	convert show_synth/$(PREFIX).svg show_synth/$(PREFIX).png
+	geeqie show_synth/$(PREFIX).png
+
+
+show_synth_full_human:
+	yosys -p "read_verilog $(FILE).v; hierarchy -top $(TOPLEVEL) -libdir src/; prep -flatten ; write_json show_synth/$(PREFIX).json"
+	netlistsvg show_synth/$(PREFIX).json -o show_synth/$(PREFIX).svg
+	# inkscape show_synth/$(PREFIX).svg
+	convert show_synth/$(PREFIX).svg show_synth/$(PREFIX).png
+	geeqie show_synth/$(PREFIX).png
+
+
 	# Show waveforms after simulation with gtkwave
 gtkwave: module
+	@echo -e '\n' $(Yellow)$(bold) '==>' $(Green)$(bold)Runing waveform viewer$(Color_Off) '\n'
 	gtkwave $(PREFIX).vcd $(PREFIX).gtkw
 gtkwave_good:
 	gtkwave $(PREFIX)_good.vcd $(PREFIX).gtkw
 
 # Delete simulation files
+delete_sim:
+	@echo -e '\n' $(Yellow)$(bold) '==>' $(Green)$(bold)Deleting temporary files$(Color_Off) '\n'
+	rm -rf sim_build/ test/__pycache__/ $(PREFIX).vcd results.xml properties/
+
+delete_synth:
+	@echo -e '\n' $(Yellow)$(bold) '==>' $(Green)$(bold)Deleting temporary files$(Color_Off) '\n'
+	rm -f show_synth/$(PREFIX)*
+
 delete:
+	@echo -e '\n' $(Yellow)$(bold) '==>' $(Green)$(bold)Deleting temporary files$(Color_Off) '\n'
 	rm -rf sim_build/ test/__pycache__/ $(PREFIX).vcd results.xml properties/
 	rm -f show_synth/*
