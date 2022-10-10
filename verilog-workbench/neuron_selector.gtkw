@@ -1,0 +1,23 @@
+[*]
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Mon Oct 10 18:38:46 2022
+[*]
+[dumpfile] "/home/farhad/github/iscas-snn-accelerator/verilog-workbench/neuron_selector.vcd"
+[dumpfile_mtime] "Mon Oct 10 18:38:22 2022"
+[dumpfile_size] 1281
+[savefile] "/home/farhad/github/iscas-snn-accelerator/verilog-workbench/neuron_selector.gtkw"
+[timestart] 20730000
+[size] 1920 1029
+[pos] -1 -1
+*-23.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 211
+[signals_width] 246
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+neuron_selector.cntrl_potential_in_ien
+@22
+neuron_selector.cntrl_potential_in_sel[5:0]
+neuron_selector.potential_in_ien_all[127:0]
+[pattern_trace] 1
+[pattern_trace] 0
