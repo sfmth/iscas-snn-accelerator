@@ -92,8 +92,13 @@ async def test_shift_add_mult(dut):
     # print(funct7_5)
     # print(len(op))
     # test a range of values
+    dut.cntrl_spk_select.value = 1
     for i in range(0, 8):
-            dut.cntrl_potential_in_sel.value = i
+            dut.in_spk.value = random.randint(0,1797693134862315907729305)
+            await Timer(10, units='us')
+    dut.cntrl_spk_select.value = 0
+    for i in range(0, 8):
+            dut.processed_spk.value = random.randint(0,3)
             await Timer(10, units='us')
             
 

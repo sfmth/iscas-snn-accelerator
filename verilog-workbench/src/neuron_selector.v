@@ -15,6 +15,7 @@ module neuron_selector(
     output wire [2047:0] spk_out,
     input wire [1023:0] in_spk,
     input wire [1:0] processed_spk,
+    input wire cntrl_spk_select,
 
     // existing potential from the previous time step:
     // input potential
@@ -22,8 +23,7 @@ module neuron_selector(
     output wire [8191:0] potential_in_all,
     output wire [1023:0] potential_in_ien_all,
 
-    input wire [5:0] cntrl_potential_in_sel,
-    input wire cntrl_potential_in_ien
+    input wire [5:0] cntrl_potential_in_sel
     );
 
     // potential out selector
@@ -56,28 +56,34 @@ module neuron_selector(
         end
     endgenerate
 
+    reg [1023:0] spk [1:0];
+    genvar z;
+    generate
+        for (z=0;z<1024;z=z+1) begin
+            assign spk_out[2*z] = spk[0][z];
+            assign spk_out[2*z+1] = spk[1][z];
+        end
+    endgenerate
+
+    always @(*) begin
+        if (cntrl_spk_select) begin
+            spk[0] = in_spk;
+            spk[1] = 0;
+        end else begin
+            if (processed_spk[0]) begin
+                spk[0]={1024{1'b1}};
+            end else begin
+                spk[0] = 0;
+            end
+            if (processed_spk[1]) begin
+                spk[1]={1024{1'b1}};
+            end else begin
+                spk[1] = 0;
+            end
+        end
+    end
 
 
-
-    /* genvar i; */
-    /* generate */
-    /*     for (i=0;i<64;i=i+1) begin */
-    /*         if (cntrl_potential_out_sel == i) */
-    /*             assign potential_out_16n = potential_out_all[(i*128)+127:i*128]; */
-    /*     end */
-    /* endgenerate */
-
-
-
-
-
-    /* int i; */
-    /* always @(*) begin */
-    /*     for (i=0;i<64;i=i+1) begin */
-    /*         if (cntrl_potential_out_sel == i) */
-    /*             potential_out_16n = potential_out_all[i*128+:i*128]; */
-    /*     end */
-    /* end */
 
 
     `ifdef COCOTB_SIM
