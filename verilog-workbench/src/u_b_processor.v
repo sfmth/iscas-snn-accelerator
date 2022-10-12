@@ -2,7 +2,7 @@
 `timescale 1ns/1ns
 
 
-`include "shift_add_mult.v"
+`include "/home/farhad/github/iscas-snn-accelerator/verilog-workbench/src/shift_add_mult.v"
 
 module u_b_processor (
     // save
@@ -98,8 +98,8 @@ module u_b_processor (
 
     `ifdef COCOTB_SIM
     initial begin
-    $dumpfile ("spk_processor.vcd");
-    $dumpvars (0, spk_processor);
+    $dumpfile ("u_b_processor.vcd");
+    $dumpvars (0, u_b_processor);
     #1;
     end
     `endif

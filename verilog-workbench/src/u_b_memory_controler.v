@@ -47,8 +47,8 @@ module u_b_memory_controler(
 
     `ifdef COCOTB_SIM
     initial begin
-    $dumpfile ("spk_memory_controler.vcd");
-    $dumpvars (0, spk_memory_controler);
+    $dumpfile ("u_b_memory_controler.vcd");
+    $dumpvars (0, u_b_memory_controler);
     #1;
     end
     `endif

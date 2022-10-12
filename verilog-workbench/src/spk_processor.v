@@ -2,7 +2,7 @@
 `timescale 1ns/1ns
 
 
-`include "schmitt_trigger.v"
+`include "/home/farhad/github/iscas-snn-accelerator/verilog-workbench/src/schmitt_trigger.v"
 
 `define HIDDEN_LAYER 1
 `define INPUT_LAYER 0
@@ -35,7 +35,7 @@ module spk_processor (
     //output layer mode
     // duplicate of hidden mode without readback of spks
 
-    input clk, reset
+    input wire clk, reset
     );
 
 

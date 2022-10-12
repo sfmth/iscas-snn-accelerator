@@ -27,7 +27,7 @@ module neuron_selector(
     );
 
     // potential out selector
-    reg [127:0] potential_out [0:63];
+    wire [127:0] potential_out [0:63];
 
     genvar i;
     generate
