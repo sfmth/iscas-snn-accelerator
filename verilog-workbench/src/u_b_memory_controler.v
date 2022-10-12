@@ -24,10 +24,12 @@ module u_b_memory_controler(
     // potential write
     output wire [127:0] potential_write_sram,
     output wire [8:0] potential_write_sram_addr,
+    output wire potential_write_sram_we,
 
     input wire [127:0] potential_write_in,
 
-    input wire [8:0] cntrl_potential_write_addr
+    input wire [8:0] cntrl_potential_write_addr,
+    input wire cntrl_potential_write_we
     );
 
     //potential read
@@ -41,6 +43,7 @@ module u_b_memory_controler(
     //potential write
     assign potential_write_sram = potential_write_in;
     assign potential_write_sram_addr = cntrl_potential_write_addr;
+    assign potential_write_sram_we = cntrl_potential_write_we;
 
     `ifdef COCOTB_SIM
     initial begin
