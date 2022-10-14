@@ -12,7 +12,7 @@
 
 module accelerator (
     input wire [2047:0] w_read_sram,
-    output wire [9:0] w_read_sram_addr,
+    output wire [10:0] w_read_sram_addr,
 
     input wire [127:0] u_read_sram,
     output wire [8:0] u_read_sram_addr,
@@ -208,6 +208,7 @@ module accelerator (
     );
 
     control_unit cu(
+        .w_read_sram_addr(w_read_sram_addr),
         .cntrl_u_out_select(cntrl_u_out_select),
         .cntrl_spk_select(cntrl_spk_select),
         .cntrl_u_in_select(cntrl_u_in_select),
