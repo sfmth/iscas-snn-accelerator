@@ -153,7 +153,7 @@ module accelerator (
     wire cntrl_spkblty_write_we;
     spk_memory_controler spk_mem(
         .spkblty_read_sram(spkblty_read_sram),
-        .spkblty_read_sram_addr(spk_read_sram_addr),
+        .spkblty_read_sram_addr(spkblty_read_sram_addr),
         .spkblty_read_out(mem_proc_spkblty),
         .cntrl_spkblty_read_addr(cntrl_spkblty_read_addr),
 
