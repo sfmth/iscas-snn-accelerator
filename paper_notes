@@ -1,0 +1,34 @@
+neurons
+for neuromorphic models LIF neurons give us a good approximation of real neurons that has low computational complexity. (neural engineering book)
+
+arch
+other sram accesses can be parralelized with the w sram.
+
+
+
+
+
+
+
+
+
+
+==> hirearchy
+
++u_b_processor
+* zero potentials after spike
+* multiply potentials and beta as they are loading
+
++spk_processor
+* input spike cache
+* schmitt_trigger functionality
+
++neuron_selector
+* output potential selector
+* input potential selector
+
++schmitt_trigger
++shift_add_mult
+
+
+
