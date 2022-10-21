@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="509"
+   height="224"
+   version="1.1"
+   id="svg165"
+   sodipodi:docname="schmitt_trigger.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:s="https://github.com/nturley/netlistsvg">
+  <defs
+     id="defs169" />
+  <sodipodi:namedview
+     id="namedview167"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.5776031"
+     inkscape:cx="252.56021"
+     inkscape:cy="112.11966"
+     inkscape:window-width="1920"
+     inkscape:window-height="1029"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg165" />
+  <style
+     id="style2">svg {
+  stroke:#000;
+  fill:none;
+}
+text {
+  fill:#000;
+  stroke:none;
+  font-size:10px;
+  font-weight: bold;
+  font-family: &quot;Courier New&quot;, monospace;
+}
+line {
+    stroke-linecap: round;
+}
+.nodelabel {
+  text-anchor: middle;
+}
+.inputPortLabel {
+  text-anchor: end;
+}
+.splitjoinBody {
+  fill:#000;
+}</style>
+  <g
+     s:type="and"
+     transform="translate(235,69.5)"
+     s:width="30"
+     s:height="25"
+     id="cell_$and$schmitt_trigger.v:19$2">
+    <s:alias
+       val="$and" />
+    <s:alias
+       val="$logic_and" />
+    <s:alias
+       val="$_AND_" />
+    <path
+       d="M0,0 L0,25 L15,25 A15 12.5 0 0 0 15,0 Z"
+       fill="#eebaff"
+       class="cell_$and$schmitt_trigger.v:19$2"
+       id="path4" />
+    <g
+       s:x="0"
+       s:y="5"
+       s:pid="A"
+       id="g6" />
+    <g
+       s:x="0"
+       s:y="20"
+       s:pid="B"
+       id="g8" />
+    <g
+       s:x="30"
+       s:y="12.5"
+       s:pid="Y"
+       id="g10" />
+  </g>
+  <g
+     s:type="and"
+     transform="translate(366,174.5)"
+     s:width="30"
+     s:height="25"
+     id="cell_$and$schmitt_trigger.v:20$5">
+    <s:alias
+       val="$and" />
+    <s:alias
+       val="$logic_and" />
+    <s:alias
+       val="$_AND_" />
+    <path
+       d="M0,0 L0,25 L15,25 A15 12.5 0 0 0 15,0 Z"
+       fill="#eebaff"
+       class="cell_$and$schmitt_trigger.v:20$5"
+       id="path13" />
+    <g
+       s:x="0"
+       s:y="5"
+       s:pid="A"
+       id="g15" />
+    <g
+       s:x="0"
+       s:y="20"
+       s:pid="B"
+       id="g17" />
+    <g
+       s:x="30"
+       s:y="12.5"
+       s:pid="Y"
+       id="g19" />
+  </g>
+  <g
+     s:type="gt"
+     transform="translate(151.66666666666666,77)"
+     s:width="25"
+     s:height="25"
+     id="cell_$gt$schmitt_trigger.v:19$1">
+    <s:alias
+       val="$gt" />
+    <circle
+       r="12"
+       cx="12"
+       cy="12"
+       fill="#ffffff"
+       class="cell_$gt$schmitt_trigger.v:19$1"
+       id="circle22" />
+    <line
+       x1="8"
+       x2="19"
+       y1="7"
+       y2="12"
+       class="cell_$gt$schmitt_trigger.v:19$1"
+       id="line24" />
+    <line
+       x1="8"
+       x2="19"
+       y1="17"
+       y2="12"
+       class="cell_$gt$schmitt_trigger.v:19$1"
+       id="line26" />
+    <g
+       s:x="2"
+       s:y="5"
+       s:pid="A"
+       id="g28" />
+    <g
+       s:x="2"
+       s:y="20"
+       s:pid="B"
+       id="g30" />
+    <g
+       s:x="25"
+       s:y="12.5"
+       s:pid="Y"
+       id="g32" />
+  </g>
+  <g
+     s:type="not"
+     transform="translate(301,72)"
+     s:width="30"
+     s:height="20"
+     id="cell_$logic_not$schmitt_trigger.v:20$3">
+    <s:alias
+       val="$_NOT_" />
+    <s:alias
+       val="$not" />
+    <s:alias
+       val="$logic_not" />
+    <path
+       d="M0,0 L0,20 L20,10 Z"
+       fill="#eebaff"
+       class="cell_$logic_not$schmitt_trigger.v:20$3"
+       id="path35" />
+    <circle
+       cx="24"
+       cy="10"
+       r="3"
+       fill="#eebaff"
+       class="cell_$logic_not$schmitt_trigger.v:20$3"
+       id="circle37" />
+    <g
+       s:x="-1"
+       s:y="10"
+       s:pid="A"
+       id="g39" />
+    <g
+       s:x="27"
+       s:y="10"
+       s:pid="Y"
+       id="g41" />
+  </g>
+  <g
+     s:type="lt"
+     transform="translate(302.3333333333333,182)"
+     s:width="25"
+     s:height="25"
+     id="cell_$lt$schmitt_trigger.v:20$4">
+    <s:alias
+       val="$lt" />
+    <circle
+       r="12.5"
+       cx="12.5"
+       cy="12.5"
+       fill="#ffffff"
+       class="cell_$lt$schmitt_trigger.v:20$4"
+       id="circle44" />
+    <line
+       x1="6"
+       x2="17"
+       y1="12"
+       y2="7"
+       class="cell_$lt$schmitt_trigger.v:20$4"
+       id="line46" />
+    <line
+       x1="6"
+       x2="17"
+       y1="12"
+       y2="17"
+       class="cell_$lt$schmitt_trigger.v:20$4"
+       id="line48" />
+    <g
+       s:x="2"
+       s:y="5"
+       s:pid="A"
+       id="g50" />
+    <g
+       s:x="2"
+       s:y="20"
+       s:pid="B"
+       id="g52" />
+    <g
+       s:x="25"
+       s:y="12.5"
+       s:pid="Y"
+       id="g54" />
+  </g>
+  <g
+     s:type="inputExt"
+     transform="translate(12,22)"
+     s:width="30"
+     s:height="20"
+     id="cell_potential">
+    <text
+       x="16.744215"
+       y="-3.3301792"
+       class="nodelabel cell_potential"
+       s:attribute="ref"
+       id="text57"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:'Courier New', monospace;-inkscape-font-specification:'Courier New, monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan379"
+         x="16.744215"
+         y="-3.3301792">Potential</tspan></text>
+    <s:alias
+       val="$_inputExt_" />
+    <path
+       d="M0,0 L0,20 L15,20 L30,10 L15,0 Z"
+       fill="#8bcaff"
+       class="cell_potential"
+       id="path59" />
+    <g
+       s:x="30"
+       s:y="10"
+       s:pid="Y"
+       id="g61" />
+  </g>
+  <g
+     s:type="outputExt"
+     transform="translate(431,51)"
+     s:width="30"
+     s:height="20"
+     id="cell_spk">
+    <text
+       x="15"
+       y="-4"
+       class="nodelabel cell_spk"
+       s:attribute="ref"
+       id="text64"
+       style="-inkscape-font-specification:'Courier New, monospace, Bold';font-family:'Courier New', monospace;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan375">Spike</tspan></text>
+    <s:alias
+       val="$_outputExt_" />
+    <path
+       d="M30,0 L30,20 L15,20 L0,10 L15,0 Z"
+       fill="#169300"
+       class="cell_spk"
+       id="path66" />
+    <g
+       s:x="0"
+       s:y="10"
+       s:pid="A"
+       id="g68" />
+  </g>
+  <g
+     s:type="outputExt"
+     transform="translate(431,177)"
+     s:width="30"
+     s:height="20"
+     id="cell_spkblty_out">
+    <text
+       x="15"
+       y="-4"
+       class="nodelabel cell_spkblty_out"
+       s:attribute="ref"
+       id="text71"
+       style="-inkscape-font-specification:'Courier New, monospace, Bold';font-family:'Courier New', monospace;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan381">New Spikablity</tspan></text>
+    <s:alias
+       val="$_outputExt_" />
+    <path
+       d="M30,0 L30,20 L15,20 L0,10 L15,0 Z"
+       fill="#169300"
+       class="cell_spkblty_out"
+       id="path73" />
+    <g
+       s:x="0"
+       s:y="10"
+       s:pid="A"
+       id="g75" />
+  </g>
+  <g
+     s:type="inputExt"
+     transform="translate(140,22)"
+     s:width="30"
+     s:height="20"
+     id="cell_spkblty_in">
+    <text
+       x="15"
+       y="-4"
+       class="nodelabel cell_spkblty_in"
+       s:attribute="ref"
+       id="text78"
+       style="-inkscape-font-specification:'Courier New, monospace, Bold';font-family:'Courier New', monospace;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan373">Previous Spikability</tspan></text>
+    <s:alias
+       val="$_inputExt_" />
+    <path
+       d="M0,0 L0,20 L15,20 L30,10 L15,0 Z"
+       fill="#8bcaff"
+       class="cell_spkblty_in"
+       id="path80" />
+    <g
+       s:x="30"
+       s:y="10"
+       s:pid="Y"
+       id="g82" />
+  </g>
+  <g
+     s:type="constant"
+     transform="translate(12,87)"
+     s:width="30"
+     s:height="20"
+     id="cell_11100110">
+    <text
+       x="22.294043"
+       y="-4.5347447"
+       class="nodelabel cell_11100110"
+       s:attribute="ref"
+       id="text85"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:'Courier New', monospace;-inkscape-font-specification:'Courier New, monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan336"
+         x="22.294043"
+         y="-4.5347447">Threshold High</tspan></text>
+    <s:alias
+       val="$_constant_" />
+    <rect
+       width="30"
+       height="20"
+       fill="#745bff"
+       class="cell_11100110"
+       id="rect87" />
+    <g
+       s:x="31"
+       s:y="10"
+       s:pid="Y"
+       id="g89" />
+    <text
+       x="145.41113"
+       y="99.715172"
+       class="nodelabel cell_11100110"
+       s:attribute="ref"
+       id="text85-3"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8px;font-family:'Courier New', monospace;-inkscape-font-specification:'Courier New, monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#000000;stroke:none"><tspan
+         sodipodi:role="line"
+         id="tspan371"
+         x="145.41113"
+         y="99.715172">Threshold Low</tspan></text>
+  </g>
+  <g
+     s:type="constant"
+     transform="translate(140,192)"
+     s:width="30"
+     s:height="20"
+     id="cell_11001000">
+    <s:alias
+       val="$_constant_" />
+    <rect
+       width="30"
+       height="20"
+       fill="#745bff"
+       class="cell_11001000"
+       id="rect94" />
+    <g
+       s:x="31"
+       s:y="10"
+       s:pid="Y"
+       id="g96" />
+  </g>
+  <line
+     x1="170"
+     x2="210"
+     y1="32"
+     y2="32"
+     class="net_12 width_1"
+     style="stroke-width: 1"
+     id="line99" />
+  <line
+     x1="210"
+     x2="210"
+     y1="32"
+     y2="74.5"
+     class="net_12 width_1"
+     style="stroke-width: 1"
+     id="line101" />
+  <line
+     x1="210"
+     x2="235"
+     y1="74.5"
+     y2="74.5"
+     class="net_12 width_1"
+     style="stroke-width: 1"
+     id="line103" />
+  <line
+     x1="176.66666666666666"
+     x2="235"
+     y1="89.5"
+     y2="89.5"
+     class="net_13 width_1"
+     style="stroke-width: 1"
+     id="line105" />
+  <line
+     x1="328"
+     x2="341"
+     y1="82"
+     y2="82"
+     class="net_14 width_1"
+     style="stroke-width: 1"
+     id="line107" />
+  <line
+     x1="341"
+     x2="341"
+     y1="82"
+     y2="179.5"
+     class="net_14 width_1"
+     style="stroke-width: 1"
+     id="line109" />
+  <line
+     x1="341"
+     x2="366"
+     y1="179.5"
+     y2="179.5"
+     class="net_14 width_1"
+     style="stroke-width: 1"
+     id="line111" />
+  <line
+     x1="327.3333333333333"
+     x2="366"
+     y1="194.5"
+     y2="194.5"
+     class="net_15 width_1"
+     style="stroke-width: 1"
+     id="line113" />
+  <line
+     x1="42"
+     x2="115"
+     y1="32"
+     y2="32"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line115" />
+  <line
+     x1="115"
+     x2="115"
+     y1="32"
+     y2="82"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line117" />
+  <line
+     x1="115"
+     x2="153.66666666666666"
+     y1="82"
+     y2="82"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line119" />
+  <line
+     x1="42"
+     x2="76"
+     y1="32"
+     y2="32"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line121" />
+  <line
+     x1="76"
+     x2="76"
+     y1="32"
+     y2="141"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line123" />
+  <line
+     x1="76"
+     x2="275"
+     y1="141"
+     y2="141"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line125" />
+  <line
+     x1="275"
+     x2="275"
+     y1="141"
+     y2="187"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line127" />
+  <circle
+     cx="76"
+     cy="32"
+     r="3"
+     style="fill:#000"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     id="circle129" />
+  <line
+     x1="275"
+     x2="304.3333333333333"
+     y1="187"
+     y2="187"
+     class="net_2,3,4,5,6,7,8,9 width_8"
+     style="stroke-width: 2"
+     id="line131" />
+  <line
+     x1="43"
+     x2="153.66666666666666"
+     y1="97"
+     y2="97"
+     class="net_16,17,18,19,20,21,22,23 width_8"
+     style="stroke-width: 2"
+     id="line133" />
+  <line
+     x1="265"
+     x2="300"
+     y1="82"
+     y2="82"
+     class="net_10 width_1"
+     style="stroke-width: 1"
+     id="line135" />
+  <line
+     x1="265"
+     x2="275"
+     y1="82"
+     y2="82"
+     class="net_10 width_1"
+     style="stroke-width: 1"
+     id="line137" />
+  <line
+     x1="275"
+     x2="275"
+     y1="82"
+     y2="61"
+     class="net_10 width_1"
+     style="stroke-width: 1"
+     id="line139" />
+  <circle
+     cx="275"
+     cy="82"
+     r="2"
+     style="fill:#000"
+     class="net_10 width_1"
+     id="circle141" />
+  <line
+     x1="275"
+     x2="431"
+     y1="61"
+     y2="61"
+     class="net_10 width_1"
+     style="stroke-width: 1"
+     id="line143" />
+  <line
+     x1="171"
+     x2="304.3333333333333"
+     y1="202"
+     y2="202"
+     class="net_24,25,26,27,28,29,30,31 width_8"
+     style="stroke-width: 2"
+     id="line145" />
+  <line
+     x1="396"
+     x2="431"
+     y1="187"
+     y2="187"
+     class="net_11 width_1"
+     style="stroke-width: 1"
+     id="line147" />
+  <rect
+     x="169"
+     y="136"
+     width="16"
+     height="9"
+     class="net_2,3,4,5,6,7,8,9 width_8 busLabel_8"
+     style="fill: white; stroke: none"
+     id="rect149" />
+  <text
+     x="168"
+     y="144"
+     class="net_2,3,4,5,6,7,8,9 width_8 busLabel_8"
+     id="text151">/8/</text>
+  <rect
+     x="169"
+     y="136"
+     width="16"
+     height="9"
+     class="net_2,3,4,5,6,7,8,9 width_8 busLabel_8"
+     style="fill: white; stroke: none"
+     id="rect153" />
+  <text
+     x="168"
+     y="144"
+     class="net_2,3,4,5,6,7,8,9 width_8 busLabel_8"
+     id="text155">/8/</text>
+  <rect
+     x="102"
+     y="92"
+     width="16"
+     height="9"
+     class="net_16,17,18,19,20,21,22,23 width_8 busLabel_8"
+     style="fill: white; stroke: none"
+     id="rect157" />
+  <text
+     x="101"
+     y="100"
+     class="net_16,17,18,19,20,21,22,23 width_8 busLabel_8"
+     id="text159">/8/</text>
+  <rect
+     x="249"
+     y="197"
+     width="16"
+     height="9"
+     class="net_24,25,26,27,28,29,30,31 width_8 busLabel_8"
+     style="fill: white; stroke: none"
+     id="rect161" />
+  <text
+     x="248"
+     y="205"
+     class="net_24,25,26,27,28,29,30,31 width_8 busLabel_8"
+     id="text163">/8/</text>
+</svg>
