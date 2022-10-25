@@ -93,13 +93,13 @@ module control_unit_256 (
                 // update addr
                 // current layer:
                 w_read_sram_addr  <= 0;
-                cntrl_potential_read_addr <= 0;
-                cntrl_beta_read_addr <= 0;
                 // previous layer:
+                cntrl_potential_read_addr <= 128;
+                cntrl_beta_read_addr <= 128;
                 cntrl_spkblty_read_addr <= 128;
                 cntrl_potential_write_addr <= 128;
                 cntrl_spkblty_write_addr <= 128;
-                cntrl_spk_write_addr <= time_step;
+                cntrl_spk_write_addr <= time_step + 128;
 
                 // neuron select
                 cntrl_u_out_select <= 0;
@@ -119,11 +119,14 @@ module control_unit_256 (
                 cntrl_ac_reset <= 0;
                 cnt_512 <= cnt_512 + 1;
                 // 64 cycles
-                if (cnt_512 < 63) begin      // timing check
-                    cntrl_potential_read_addr <= cntrl_potential_read_addr + 1;
-                    cntrl_beta_read_addr <= cntrl_beta_read_addr + 1;
-                    cntrl_u_in_select <= cntrl_u_in_select + 1;
-                end
+                /* if (cnt_512 < 63) begin      // timing check */
+                /*     cntrl_potential_read_addr <= cntrl_potential_read_addr + 1; */
+                /*     cntrl_beta_read_addr <= cntrl_beta_read_addr + 1; */
+                /*     cntrl_u_in_select <= cntrl_u_in_select + 1; */
+                /*     cntrl_spk_write_addr <= cntrl_spk_write_addr + 1; */
+                /*     cntrl_spkblty_read_addr <= cntrl_spkblty_read_addr + 1; */
+                /*     cntrl_spkblty_write_addr <= cntrl_spkblty_write_addr + 1; */
+                /* end */
                 // 1 cycle
                 if (cnt_512 < 1) begin
                     cntrl_ac_oen <= 1;
@@ -133,11 +136,11 @@ module control_unit_256 (
                     cntrl_spkblty_write_we <= 0;
                     cntrl_spk_write_we <= 0;
                     cntrl_potential_write_we <= 0;
-                end
-                // finish
-                if (cnt_512 == 64) begin       // timing check
                     state <= `STATE_P_H;
                 end
+                // finish
+                /* if (cnt_512 == 64) begin       // timing check */
+                /* end */
             end
             `STATE_P_H: begin
                 cnt_512 <= 0;
@@ -145,9 +148,9 @@ module control_unit_256 (
                 // update addr
                 // current layer:
                 w_read_sram_addr  <= 1;
-                cntrl_potential_read_addr <= 64;
-                cntrl_beta_read_addr <= 64;
                 // previous layer:
+                cntrl_potential_read_addr <= 0;
+                cntrl_beta_read_addr <= 0;
                 cntrl_ac_spk_read_addr <= 0;
                 cntrl_ac_spk_read_switch <= 0;
                 cntrl_spkblty_read_addr <= 0;
@@ -208,9 +211,9 @@ module control_unit_256 (
                 // update addr
                 // current layer:
                 w_read_sram_addr  <= 513;
-                cntrl_potential_read_addr <= 128;
-                cntrl_beta_read_addr <= 128;
                 // previous layer:
+                cntrl_potential_read_addr <= 64;
+                cntrl_beta_read_addr <= 64;
                 cntrl_ac_spk_read_addr <= 64;
                 cntrl_ac_spk_read_switch <= 0;
                 cntrl_spkblty_read_addr <= 64;
@@ -228,7 +231,7 @@ module control_unit_256 (
                 // in spk load
                 cntrl_in_spk_reg_mask <= 0;
                 cntrl_in_spk_reg_we <= 1;
-                cntrl_in_spk_read_addr <= time_step + 1;
+                cntrl_in_spk_read_addr <= (time_step << 3) + 8;
 
                 state <= `STATE_OUTPUT;
             end
@@ -248,6 +251,8 @@ module control_unit_256 (
                 // 64 cycles
                 // potential r/w, spk w, spkblty r/w, beta r
                 if (cnt_512 < 63) begin         // timing check
+                    cntrl_beta_read_addr <= cntrl_beta_read_addr + 1;
+                    cntrl_potential_read_addr <= cntrl_potential_read_addr + 1;
                     cntrl_potential_write_addr <= cntrl_potential_write_addr + 1;
                     cntrl_spk_write_addr <= cntrl_spk_write_addr + 1;
                     cntrl_spkblty_read_addr <= cntrl_spkblty_read_addr + 1;
